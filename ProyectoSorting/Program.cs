@@ -156,6 +156,11 @@ namespace ProyectoSorting
                 array[j + 1] = temp;
             }
         }
+
+        public void SelectionSort(int[] array)
+        {
+
+        }
     }
 
     class Program
@@ -174,6 +179,7 @@ namespace ProyectoSorting
             array.Sort(array.BubbleSortEarlyExit);
             array.Sort(array.QuickSort);
             array.Sort(array.InsertionSort);
+            array.Sort(array.SelectionSort);
         }
     }
 }
