@@ -30,7 +30,7 @@ namespace ProyectoSorting
             int[] temp = new int[array.Length];
             Array.Copy(array, temp, array.Length);
 
-            Console.WriteLine(func.Method.Name);
+            Console.WriteLine("\n" + func.Method.Name);
 
             time.Start();
 
