@@ -30,7 +30,7 @@ namespace ProyectoSorting
             int[] temp = new int[array.Length];
             Array.Copy(array, temp, array.Length);
 
-            Console.WriteLine(func.Method.Name);
+            Console.WriteLine("\n" + func.Method.Name);
 
             time.Start();
 
@@ -62,6 +62,7 @@ namespace ProyectoSorting
 
             Console.WriteLine("Decreasing: " + time.ElapsedMilliseconds + "ms " + time.ElapsedTicks + "ticks");
         }
+
         public void BubbleSort(int[] array)
         {
             for (int i = 0; i < array.Length - 1; i++)
@@ -77,6 +78,7 @@ namespace ProyectoSorting
                 }
             }
         }
+
         public void BubbleSortEarlyExit(int[] array)
         {
             bool ordered = true;
@@ -97,10 +99,12 @@ namespace ProyectoSorting
                     return;
             }
         }
+
         public void QuickSort(int[] array)
         {
             QuickSort(array, 0, array.Length - 1);
         }
+
         public void QuickSort(int[] array, int left, int right)
         {
             if(left < right)
@@ -110,6 +114,7 @@ namespace ProyectoSorting
                 QuickSort(array, pivot + 1, right);
             }
         }
+
         public int QuickSortPivot(int[] array, int left, int right)
         {
             int pivot = array[(left + right) / 2];
@@ -136,7 +141,42 @@ namespace ProyectoSorting
                 }
             }
         }
+
+        public void InsertionSort(int[] array)
+        {
+            for (int i = 1; i < array.Length; i++)
+            {
+                int temp = array[i];
+                int j = i - 1;
+                while (j >= 0 && temp < array[j])
+                {
+                    array[j + 1] = array[j];
+                    --j;
+                }
+                array[j + 1] = temp;
+            }
+        }
+
+        public void SelectionSort(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[j] < array[min])
+                    {
+                        min = j;
+                    }
+                }
+
+                int temp = array[min];
+                array[min] = array[i];
+                array[i] = temp;
+            }
+        }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -152,7 +192,8 @@ namespace ProyectoSorting
             array.Sort(array.BubbleSort);
             array.Sort(array.BubbleSortEarlyExit);
             array.Sort(array.QuickSort);
-
+            array.Sort(array.InsertionSort);
+            array.Sort(array.SelectionSort);
         }
     }
 }
