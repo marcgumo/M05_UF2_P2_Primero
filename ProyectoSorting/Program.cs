@@ -136,6 +136,11 @@ namespace ProyectoSorting
                 }
             }
         }
+
+        public void InsertionSort(int[] array)
+        {
+
+        }
     }
     class Program
     {
