@@ -144,17 +144,16 @@ namespace ProyectoSorting
 
         public void InsertionSort(int[] array)
         {
-            for (int i = 0; i < array.Length - 1; i++)
+            for (int i = 1; i < array.Length; i++)
             {
-                for (int j = i + 1; j > 0; j--)
+                int temp = array[i];
+                int j = i - 1;
+                while (j >= 0 && temp < array[j])
                 {
-                    if (array[j - 1] > array[j])
-                    {
-                        int temp = array[j - 1];
-                        array[j - 1] = array[j];
-                        array[j] = temp;
-                    }
+                    array[j + 1] = array[j];
+                    --j;
                 }
+                array[j + 1] = temp;
             }
         }
 
