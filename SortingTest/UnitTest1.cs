@@ -39,5 +39,21 @@ namespace SortingTest
             //Assert
             Assert.IsTrue(Enumerable.SequenceEqual(temp, sortArray.arrayCreciente));
         }
+
+        [TestMethod]
+        public void InsertionSort_Test()
+        {
+            //Arrange
+            Random random = new Random();
+            SortingArray sortArray = new SortingArray(10000, random);
+            int[] temp = new int[sortArray.array.Length];
+            Array.Copy(sortArray.array, temp, sortArray.array.Length);
+
+            //Act
+            sortArray.InsertionSort(temp);
+
+            //Assert
+            Assert.IsTrue(Enumerable.SequenceEqual(temp, sortArray.arrayCreciente));
+        }
     }
 }
