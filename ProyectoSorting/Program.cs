@@ -30,7 +30,7 @@ namespace ProyectoSorting
             int[] temp = new int[array.Length];
             Array.Copy(array, temp, array.Length);
 
-            Console.WriteLine(func.Method.Name);
+            Console.WriteLine("\n" + func.Method.Name);
 
             time.Start();
 
@@ -148,12 +148,31 @@ namespace ProyectoSorting
             {
                 int temp = array[i];
                 int j = i - 1;
-                while (j > 0 && array[j] > temp)
+                while (j >= 0 && temp < array[j])
                 {
                     array[j + 1] = array[j];
-                    j--;
+                    --j;
                 }
                 array[j + 1] = temp;
+            }
+        }
+
+        public void SelectionSort(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[j] < array[min])
+                    {
+                        min = j;
+                    }
+                }
+
+                int temp = array[min];
+                array[min] = array[i];
+                array[i] = temp;
             }
         }
     }
@@ -174,6 +193,7 @@ namespace ProyectoSorting
             array.Sort(array.BubbleSortEarlyExit);
             array.Sort(array.QuickSort);
             array.Sort(array.InsertionSort);
+            array.Sort(array.SelectionSort);
         }
     }
 }
